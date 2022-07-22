@@ -22,7 +22,8 @@
     "react-dom": "18.1.0",
     "react-icons": "^4.4.0",
     "swiper": "^8.2.6",
-    "theme-change": "^2.1.0"
+    "theme-change": "^2.1.0",
+    "webfontloader": "^1.6.28"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.7",

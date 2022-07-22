@@ -10,6 +10,8 @@ body {
   color: #000;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  /* background-image: url("../public/backgroundImage.png"); */
+  /* background-size: cover;  */
 }
 
 a {
@@ -96,7 +98,6 @@ a {
   align-self: start;
 }
 .zoom:hover {
-
   transform: scale(1.1);
 }
 
@@ -104,6 +105,7 @@ a {
   /* border: 2px solid black; */
   width: 300px;
   height: 400px;
+}
 
 .navbar {
   /* border: 2px solid rgb(0, 89, 255);
@@ -183,6 +185,20 @@ a {
 .remove {
   background-color: aliceblue;
 
+}
+
+.video-responsive {
+  z-index: 1000;
+  /* ADDING Z-INDEX JUST SO THIS CSS ISNT BLANK */
+}
+
+.video-responsive iframe {
+  z-index: 1000;
+  /* ADDING Z-INDEX JUST SO THIS CSS ISNT BLANK */
+}
+
+.remove {
+  background-color: aliceblue;
 }
 
 .video-responsive {

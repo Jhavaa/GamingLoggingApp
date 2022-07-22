@@ -5,10 +5,19 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    
+    extend: {
+      colors: {
+       'highlight': '#9747FF',
+       'selected': '#BD89FF', 
+       'hovered': '#1ABCFE',
+       'dropdown': '#4A52FF',
+       'dark': '#0193FF'
+      }
+    },
   },
   plugins: [require("daisyui")],
   daisyui: {
-    themes: false,
+    themes: ["cupcake", "bumblebee", "cyberpunk", "light", "dark"],
   },
 };
