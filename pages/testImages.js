@@ -7,7 +7,6 @@ import Link from "next/link";
 // import style from "../styles/Test.module.css";
 
 function Test({ gameList }) {
-  console.log(gameList);
   return (
     <div>
       <NavBar />
@@ -16,10 +15,12 @@ function Test({ gameList }) {
         <div className="poster">
           {gameList.map((game) => {
             return (
-              <div className="card w-96 bg-base-100 shadow-xl m-2 zoom">
+              <div
+                key={game.id}
+                className="card w-96 bg-base-100 shadow-xl m-2 zoom"
+              >
                 <figure>
                   <Link
-                    key={game.id}
                     href={{
                       pathname: "/games/[name]",
                       query: { name: game.slug },

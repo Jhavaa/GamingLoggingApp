@@ -64,7 +64,6 @@ a {
   height: auto;
   /* max-height: 100%;
   max-width: 100%; */
-
 }
 
 .smImage {
@@ -96,7 +95,6 @@ a {
   align-self: start;
 }
 .zoom:hover {
-
   transform: scale(1.1);
 }
 
@@ -104,6 +102,7 @@ a {
   /* border: 2px solid black; */
   width: 300px;
   height: 400px;
+}
 
 .navbar {
   /* border: 2px solid rgb(0, 89, 255);
@@ -167,7 +166,6 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
 }
 
 .video-responsive {
@@ -182,7 +180,6 @@ a {
 
 .remove {
   background-color: aliceblue;
-
 }
 
 .video-responsive {

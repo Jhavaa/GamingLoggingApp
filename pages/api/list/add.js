@@ -1,8 +1,5 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import Games from "../../../database/user_data/model/Games";
-import { getCurrentDate } from "../../../utils/getCurrentDate";
 
-// TODO: Write API that adds a game to a users game list */
 export default async function handler(req, res) {
   // Status Translation:
   const status = ["Backlog", "In Progress", "Finished", "Retired"];
@@ -36,28 +33,43 @@ export default async function handler(req, res) {
       gameID: gameData.gameID,
     });
 
-    if (gameEntryExist) {
+    // Game entry exists AND game entry does not have a 'dateRemoved' field
+    if (gameEntryExist && !gameEntryExist?.dateRemoved) {
       return res
         .status(200)
         .json({ message: "Game already added to user list." });
     }
 
-    const gameEntry = new Games({
-      userID: gameData.userID,
-      gameID: gameData.gameID,
-      status: gameData.status, // status[gameData.status], // req status is a number index for the array above.
-      dateAdded: new Date(),
-      // dateRemoved not included, since we don't want that value to be filled
-    });
+    // If the game was removed previously
+    if (gameEntryExist.dateRemoved) {
+      gameEntryExist.dateRemoved = undefined;
+      gameEntryExist.save((err) => {
+        if (err) {
+          return res.status(401).json({
+            message:
+              "Error in completing request: can not update to dateRemoved field.",
+            error: err,
+          });
+        }
+      });
+    } else {
+      const gameEntry = new Games({
+        userID: gameData.userID,
+        gameID: gameData.gameID,
+        status: gameData.status, // status[gameData.status], // req status is a number index for the array above.
+        dateAdded: new Date(),
+        // dateRemoved not included, since we don't want that value to be filled
+      });
 
-    gameEntry.save((err) => {
-      if (err) {
-        return res.status(401).json({
-          message: "Error in completing request: can not save to database.",
-          error: err,
-        });
-      }
-    });
+      gameEntry.save((err) => {
+        if (err) {
+          return res.status(401).json({
+            message: "Error in completing request: can not save to database.",
+            error: err,
+          });
+        }
+      });
+    }
 
     return res.status(200).json({
       message: `Game ID ${gameData.gameID} successfully added to user's ${

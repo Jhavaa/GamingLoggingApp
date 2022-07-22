@@ -38,10 +38,7 @@ export function GameListProvider({ children }) {
     /* whatever you want */
     user: user,
     gameList: gameList,
-  };
-
-  const updateFns = {
-    // if we need to modify the gameList, register those functions here
+    setGameList,
   };
 
   return (
