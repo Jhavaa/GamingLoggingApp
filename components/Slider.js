@@ -14,13 +14,14 @@ import "swiper/css/scrollbar";
 // import required modules
 import { Pagination, Navigation, Scrollbar } from "swiper";
 
-function Slider({ gameProp }) {
+function Slider({ gameProp, sliderTitle = "" }) {
   return (
-    <>
+    <div>
+      <h1 className="text-4xl m-6 font-bold underline decoration-blue-500 decoration-6">{`${sliderTitle}`}</h1>
       <Swiper
-        slidesPerView={3}
-        spaceBetween={30}
-        slidesPerGroup={3}
+        slidesPerView={4}
+        spaceBetween={1}
+        slidesPerGroup={4}
         loop={true}
         loopFillGroupWithBlank={true}
         pagination={{
@@ -51,7 +52,7 @@ function Slider({ gameProp }) {
           </SwiperSlide>
         ))}
       </Swiper>
-    </>
+    </div>
   );
 }
 

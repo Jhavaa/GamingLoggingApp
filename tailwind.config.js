@@ -5,7 +5,11 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      textDecorationThickness: {
+        6: "6px",
+      },
+    },
   },
   plugins: [require("daisyui")],
   daisyui: {
